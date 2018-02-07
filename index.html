@@ -15,10 +15,7 @@
     </div>
     <div class="main-body">
       <div class="search-results">
-        <div id="coffeeResults">
-          <div class="coffeeName">
-            <p class="roastLevel"></p>
-          </div>
+        <div id="coffees">
         </div>
       </div>
       <div class="coffee-search">
@@ -27,7 +24,7 @@
           <input type="button" id="submit" name="submit">
         </div>
         <div id="roast">
-          <select name="roast" id="roastSelection">
+          <select id="roastSelection" onchange='roast'>
             <option class='selection' value="light">Light</option>
             <option class='selection' value="medium">Medium</option>
             <option class='selection' value="dark">Dark</option>

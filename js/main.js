@@ -1,5 +1,31 @@
 'use strict';
 
+function renderCoffee (coffee) {
+  var div = '';
+  div += `<div class="coffeeName">${coffee.name} <p class="roastLevel"> ${coffee.roast}</p></div>`;
+  return div;
+}
+
+function renderCoffees (coffees) {
+  var div = '';
+  for (var i = coffees.length - 1; i >= 0; i--) {
+    div += renderCoffee(coffees[i]);
+  }
+  return div;
+}
+
+function updateCoffees (e) {
+  e.preventDefault(); // don't submit the form, we just want to update the data
+  var selectedRoast = roastSelection.value;
+  var filteredCoffees = [];
+  coffees.forEach(function (coffee) {
+    if (coffee.roast === selectedRoast) {
+      filteredCoffees.push(coffee);
+    }
+  });
+  divCoffee.innerHTML = renderCoffees(filteredCoffees);
+}
+
 var coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
     {id: 2, name: 'Half City', roast: 'light'},
@@ -17,35 +43,12 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'}
 ];
 
-var roastSelect = document.getElementById('roastSelection').value;
+var divCoffee = document.querySelector('#coffees');
+var submitBtn = document.querySelector('#submit');
+var roastSelection = document.querySelector('#roastSelection');
+var coffeeSearch = document.querySelector('#cofeeSearch');
 
-const roast = coffees.filter(coffee => coffees.roast === roastSelect);
-console.log(roast);
-
-function renderCoffee (coffee) {
-  var div = '';
-  div += `<div class="coffeeName">${coffee.name} <p class="roastLevel"> ${coffee.roast}</p></div>`;
-  return div;
-}
-
-function renderCoffees (coffees) {
-  var div = '';
-  for (var i = coffees.length - 1; i >= 0; i--) {
-    div += renderCoffee(coffees[i]);
-  }
-  return div;
-}
-
-var coffeeResults = document.getElementById('coffeeResults');
-function updateCoffees (e) {
-  e.preventDefault(); // don't submit the form, we just want to update the data
-  var selectedRoast = roastSelection.value;
-  var filteredCoffees = [];
-  coffees.forEach(function (coffee) {
-    if (coffee.roast === selectedRoast) {
-      filteredCoffees.push(coffee);
-    }
-  });
-  coffeeResults.appendChild(filteredCoffees).innerHTML = renderCoffees(filteredCoffees);
-}
-coffeeResults.innerHTML = renderCoffees(coffees);
+divCoffee.innerHTML = renderCoffees(coffees);
+submitBtn.addEventListener('click', updateCoffees);
+roastSelection.addEventListener('onchange', updateCoffees);
+coffeeSearch.addEventListener('onkeyup', updateCoffees);
