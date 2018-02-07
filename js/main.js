@@ -1,21 +1,20 @@
-"use strict"
+'use strict';
 
-function renderCoffee(coffee) {
-    var html = '<tr class="coffee">';
-    html += '<td>' + coffee.id + '</td>';
-    html += '<td>' + coffee.name + '</td>';
-    html += '<td>' + coffee.roast + '</td>';
-    html += '</tr>';
-
-    return html;
+function renderCoffee (coffee) {
+  var html = '<tr class="coffee">';
+  html += '<td>' + coffee.id + '</td>';
+  html += '<td>' + coffee.name + '</td>';
+  html += '<td>' + coffee.roast + '</td>';
+  html += '</tr>';
+  return html;
 }
 
-function renderCoffees(coffees) {
-    var html = '';
-    for(var i = coffees.length - 1; i >= 0; i--) {
-        html += renderCoffee(coffees[i]);
-    }
-    return html;
+function renderCoffees (coffees) {
+  var html = '';
+  for (var i = coffees.length - 1; i >= 0; i--) {
+    html += renderCoffee(coffees[i]);
+  }
+  return html;
 }
 
 function updateCoffees(e) {
@@ -45,7 +44,7 @@ var coffees = [
     {id: 11, name: 'Espresso', roast: 'dark'},
     {id: 12, name: 'Viennese', roast: 'dark'},
     {id: 13, name: 'Italian', roast: 'dark'},
-    {id: 14, name: 'French', roast: 'dark'},
+    {id: 14, name: 'French', roast: 'dark'}
 ];
 
 var tbody = document.querySelector('#coffees');
