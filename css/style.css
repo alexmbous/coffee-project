@@ -1,8 +1,8 @@
-colors {
-  #603801 /* Primary */
-  #91622d /* Light */
-  #371100 /* Dark */
-}
+/*colors {*/
+  /*#603801 !* Primary *!*/
+  /*#91622d !* Light *!*/
+  /*#371100 !* Dark *!*/
+/*}*/
 
 /* fonts -- font-family: 'Asap', sans-serif;
 font-family: 'Quattrocento', serif; */
@@ -95,4 +95,63 @@ p.tagline {
   display: grid;
   grid-template-columns: 5% 90% 5%;
   grid-template-rows: 1fr 1fr 1fr;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+.searchBar {
+	grid-column: 2/3;
+	grid-row: 2/3;
+    display: block;
+    vertical-align: middle;
+}
+
+/* Style the search field */
+.searchBar input[type=text] {
+
+    font-size: 17px;
+    border: 1px solid grey;
+    width: 80%;
+    background: #f1f1f1;
+    border-radius: 10px;
+    font-family: 'Quattrocento', serif;
+    -webkit-box-shadow: 5px 5px 0 #666;
+    -moz-box-shadow: 5px 5px 0 #666;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    margin: 0 10px 0 0;
+}
+
+/* Style the submit button */
+.searchBar button {
+
+    border-radius: 10px;
+	color: white;
+	font-size: 20px;
+	text-decoration: none;
+	text-shadow: -1px -1px 1px #616161;
+	position: relative;
+	padding: 10px 15px;
+	-webkit-box-shadow: 5px 5px 0 #666;
+	-moz-box-shadow: 5px 5px 0 #666;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	margin: 0 10px 0 0;
+}
+
+.searchBar button:hover {
+    border-radius: 10px;
+	-webkit-box-shadow: 0px 0px 0 #666;
+	-moz-box-shadow: 0px 0px 0 #666;
+	top: 5px;
+	left: 5px;
+}
+
+/* Clear floats */
+.example::after {
+    content: "";
+    clear: both;
+    display: table;
 }
