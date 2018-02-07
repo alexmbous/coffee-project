@@ -17,21 +17,14 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'}
 ];
 
+const roastSelect = document.getElementById('roastSelection').value.addEventListener('onchange');
 
-var coffeeSearch = document.querySelector('#coffeeSearch');
-var submitButton = document.querySelector('#submit');
-var roastSelect = document.querySelector('#roastSelection');
-coffeeSearch.addEventListener('onkeyup', updateCoffees);
-submitButton.addEventListener('click', updateCoffees);
-
-roastSelect.addEventListener('onchange', roast);
-const roast = coffees.filter(coffee => coffee.roast === roastSelect.value);
+const roast = coffees.filter(coffee => coffees.roast === roastSelect);
 console.log(roast);
+
 function renderCoffee (coffee) {
-  var div = '<div id="coffeeResults">';
-  div += '<div class="coffeeName">' + coffee.name + '</div>';
-  div += '<p class="roastLevel">' + coffee.roast + '</p>';
-  div += '</div>';
+  var div = '';
+  div += `<div class="coffeeName">${coffee.name} <p class="roastLevel">${coffee.roast}</p></div>`;
   return div;
 }
 
