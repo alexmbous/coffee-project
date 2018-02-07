@@ -16,21 +16,29 @@
     <div class="main-body">
       <div class="search-results">
         <div id="coffeeResults">
-          <div class="coffeeName">boats<p class="roastLevel">n' hoes<p></div>
+          <div class="coffeeName">
+            <p class="roastLevel"><p>
+          </div>
         </div>
       </div>
       <div class="coffee-search">
         <div class="searchBar">
-              <input type="text" placeholder="Search.." name="search">
-              <button type="submit"></button>
+          <input type="text" id="coffeeSearch" name="search">
+          <input type="button" id="submit" name="submit">
+        </div>
+        <div id="roast">
+          <select name="roast" id="roastSelection">
+            <option value="light">Light</option>
+            <option value="medium">Medium</option>
+            <option value="dark">Dark</option>
+            <option value="all">All Roasts</option>
+          </select>
         </div>
       </div>
       <div class="add-coffee">
-        
       </div>
     </div>
   </div>
-
     <script src="js/main.js"></script>
 </body>
 </html>
