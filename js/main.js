@@ -17,14 +17,14 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'}
 ];
 
-const roastSelect = document.getElementById('roastSelection').value.addEventListener('onchange');
+var roastSelect = document.getElementById('roastSelection').value;
 
 const roast = coffees.filter(coffee => coffees.roast === roastSelect);
 console.log(roast);
 
 function renderCoffee (coffee) {
   var div = '';
-  div += `<div class="coffeeName">${coffee.name} <p class="roastLevel">${coffee.roast}</p></div>`;
+  div += `<div class="coffeeName">${coffee.name} <p class="roastLevel"> ${coffee.roast}</p></div>`;
   return div;
 }
 
