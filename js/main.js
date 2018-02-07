@@ -1,36 +1,5 @@
-"use strict"
+'use strict';
 
-function renderCoffee(coffee) {
-    var html = '<tr class="coffee">';
-    html += '<td>' + coffee.id + '</td>';
-    html += '<td>' + coffee.name + '</td>';
-    html += '<td>' + coffee.roast + '</td>';
-    html += '</tr>';
-
-    return html;
-}
-
-function renderCoffees(coffees) {
-    var html = '';
-    for(var i = coffees.length - 1; i >= 0; i--) {
-        html += renderCoffee(coffees[i]);
-    }
-    return html;
-}
-
-function updateCoffees(e) {
-    e.preventDefault(); // don't submit the form, we just want to update the data
-    var selectedRoast = roastSelection.value;
-    var filteredCoffees = [];
-    coffees.forEach(function(coffee) {
-        if (coffee.roast === selectedRoast) {
-            filteredCoffees.push(coffee);
-        }
-    });
-    tbody.innerHTML = renderCoffees(filteredCoffees);
-}
-
-// from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
     {id: 2, name: 'Half City', roast: 'light'},
@@ -45,13 +14,38 @@ var coffees = [
     {id: 11, name: 'Espresso', roast: 'dark'},
     {id: 12, name: 'Viennese', roast: 'dark'},
     {id: 13, name: 'Italian', roast: 'dark'},
-    {id: 14, name: 'French', roast: 'dark'},
+    {id: 14, name: 'French', roast: 'dark'}
 ];
 
-var tbody = document.querySelector('#coffees');
-var submitButton = document.querySelector('#submit');
-var roastSelection = document.querySelector('#roast-selection');
+var roastSelect = document.getElementById('roastSelection').value;
 
-tbody.innerHTML = renderCoffees(coffees);
+const roast = coffees.filter(coffee => coffees.roast === roastSelect);
+console.log(roast);
 
-submitButton.addEventListener('click', updateCoffees);
+function renderCoffee (coffee) {
+  var div = '';
+  div += `<div class="coffeeName">${coffee.name} <p class="roastLevel"> ${coffee.roast}</p></div>`;
+  return div;
+}
+
+function renderCoffees (coffees) {
+  var div = '';
+  for (var i = coffees.length - 1; i >= 0; i--) {
+    div += renderCoffee(coffees[i]);
+  }
+  return div;
+}
+
+var coffeeResults = document.getElementById('coffeeResults');
+function updateCoffees (e) {
+  e.preventDefault(); // don't submit the form, we just want to update the data
+  var selectedRoast = roastSelection.value;
+  var filteredCoffees = [];
+  coffees.forEach(function (coffee) {
+    if (coffee.roast === selectedRoast) {
+      filteredCoffees.push(coffee);
+    }
+  });
+  coffeeResults.appendChild(filteredCoffees).innerHTML = renderCoffees(filteredCoffees);
+}
+coffeeResults.innerHTML = renderCoffees(coffees);
