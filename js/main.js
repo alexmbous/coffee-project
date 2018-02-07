@@ -2,7 +2,7 @@
 
 function renderCoffee (coffee) {
   var div = '';
-  div += `<div class="coffeeName">${coffee.name} <p class="roastLevel"> ${coffee.roast}</p></div>`;
+  div += `<div class="coffeeName">${coffee.name} <p class="roastLevel">${coffee.roast}</p></div>`;
   return div;
 }
 
