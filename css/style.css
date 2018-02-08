@@ -95,7 +95,7 @@ p.tagline {
 }
 
 .roastLevel {
-  font-size: 2vh;
+  font-size: 2vw;
   font-style: italic;
   justify-self: center;
   grid-column: auto;
@@ -135,29 +135,65 @@ button.btn>img {
     padding: 4px;
   }
 
-
-.searchBar {
-  margin-top: .5em;
-	grid-column: 2/3;
-	grid-row: 4/5;
-  display: block;
-  position: absolute;
-  text-align: center;
+.add-coffee {
+  display: grid;
+  grid-template-columns: 5% 90% 5%;
+  grid-template-rows: 1fr 1fr 1fr;
 }
 
 
-input {
-  border: 1px solid #ccc;
-  font-size: 12px;
-  height: 30px;
-  padding: 4px 8px;
-  position: absolute;
-  width: 50%;
+* {
+    box-sizing: border-box;
+}
+.roast {
+    margin-top: 1em;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    text-align: center;
+    width: 100%;
+
+}
+select {
+    font-family: 'Quattrocento', serif;
+    font-size: 1rem;
+    text-align: center;
+}
+
+
+#roastSelection {
+    float: left;
+    padding-left: 10%;
+    padding-right: 10%;
+    height: 30px;
+}
+.search {
+    font-family: 'Quattrocento', serif;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.searchBar {
+    margin-top: .5em;
+	grid-column: 2/3;
+	grid-row: 4/5;
+    display: block;
+    position: absolute;
+    text-align: center;
+}
+
+
+input{
+    border: 1px solid #ccc;
+    font-size: 12px;
+    height: 30px;
+    padding: 4px 8px;
+    position: absolute;
+    width: 50%;
 }
 
 button.btn-search,
 button.btn-reset {
-    background: #3b9bff;
+    background: hotpink;
     border: none;
     height: 30px;
     font-size: 12px;
