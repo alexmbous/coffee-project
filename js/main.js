@@ -15,29 +15,30 @@ function renderCoffees (coffees) {
 }
 
 function updateCoffees (e) {
-  var input = document.getElementById('coffeeSearch').value;
+  var input = document.getElementById('coffeeSearch').value.toLowerCase();
   var selectedRoast = document.getElementById('roastSelection').value;
   var filteredCoffees = [];
   coffees.forEach(function (coffee) {
-    var expression = `^[" + ${input} + "]`;
-    var rx = new RegExp(expression, 'gi');
-    if (coffee.name.indexOf(input.match(rx)) !== -1 && selectedRoast === 'all') {
+    var lower = coffee.name;
+    lower = lower.toLowerCase();
+    var expression = `^[${input}]`;
+    var rx = new RegExp(expression, 'i');
+    if (rx.test(coffee.name) && selectedRoast === 'all') {
       filteredCoffees.push(coffee);
     } else {
-      if (coffee.name.indexOf(input.match(rx)) === '' && selectedRoast === 'all') {
+      if (rx.test(coffee.name) && selectedRoast === 'all') {
+        filteredCoffees.push(coffee);
+      } else if (coffee.roast === selectedRoast && lower.indexOf(input.match(rx)) === null) {
+        filteredCoffees.push(coffee);
+      } else if (lower.indexOf(input.match(rx)) !== null && coffee.roast === selectedRoast) {
         filteredCoffees.push(coffee);
       } else {
-        if (coffee.roast === selectedRoast && input === '') {
-          filteredCoffees.push(coffee);
-        } else if (coffee.name.indexOf(input.match(rx)) !== -1 && coffee.roast === selectedRoast) {
-          filteredCoffees.push(coffee);
-        }
+        console.log('error');
       }
     }
+    divCoffee.innerHTML = renderCoffees(filteredCoffees);
   });
-  console.log(divCoffee.innerHTML = renderCoffees(filteredCoffees));
 }
-
 var coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
     {id: 2, name: 'Half City', roast: 'light'},
@@ -56,5 +57,4 @@ var coffees = [
 ];
 
 var divCoffee = document.querySelector('#coffees');
-var coffeeSearch = document.querySelector('#coffeeSearch').value.toLowerCase();
-// submitBtn.addEventListener('click', updateCoffees);
+// submitBtn.addEventListener('click', updateCoffees)
