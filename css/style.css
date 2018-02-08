@@ -161,7 +161,7 @@ input{
 
 button.btn-search,
 button.btn-reset {
-    background: hotpink;
+    background: #3b9bff;
     border: none;
     height: 30px;
     font-size: 12px;
@@ -169,8 +169,6 @@ button.btn-reset {
     position: absolute;
     width: 30px;
 }
-
-
 
 
 .searchBar input {
