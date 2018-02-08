@@ -79,7 +79,7 @@ p.tagline {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(10, 1fr);
-  grid-auto-flow: column;
+  grid-auto-flow: row;
   max-height: 65vh;
   overflow: scroll;
 }
@@ -88,14 +88,14 @@ p.tagline {
   padding-top: 0.6em;
   display: inline-flex;
   align-self: center;
-  font-size: 3vw;
+  font-size: 3vh;
   justify-self: center;
   grid-column: auto;
   grid-row: auto;
 }
 
 .roastLevel {
-  font-size: 2vw;
+  font-size: 2vh;
   font-style: italic;
   justify-self: center;
   grid-column: auto;
@@ -116,17 +116,10 @@ p.tagline {
 }
 
 select#roastSelection {
-  width: 75%;
+  width: 70%;
   position: relative;
-  top: 8em;
-  left: 3em;
-}
-
-button.btn>img {
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  padding: 4px;
+  top: 8vh;
+  left: 2vh;
 }
 
 .add-coffee {
@@ -135,54 +128,31 @@ button.btn>img {
   grid-template-rows: 1fr 1fr 1fr;
 }
 
+button.btn>img {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    padding: 4px;
+  }
 
-* {
-    box-sizing: border-box;
-}
-.roast {
-    margin-top: 1em;
-    grid-column: 2/3;
-    grid-row: 2/3;
-    text-align: center;
-    width: 100%;
-
-}
-select {
-    font-family: 'Quattrocento', serif;
-    font-size: 1rem;
-    text-align: center;
-}
-
-
-#roastSelection {
-    float: left;
-    padding-left: 10%;
-    padding-right: 10%;
-    height: 30px;
-}
-.search {
-    font-family: 'Quattrocento', serif;
-    font-size: 13px;
-    font-weight: bold;
-}
 
 .searchBar {
-    margin-top: .5em;
+  margin-top: .5em;
 	grid-column: 2/3;
 	grid-row: 4/5;
-    display: block;
-    position: absolute;
-    text-align: center;
+  display: block;
+  position: absolute;
+  text-align: center;
 }
 
 
-input{
-    border: 1px solid #ccc;
-    font-size: 12px;
-    height: 30px;
-    padding: 4px 8px;
-    position: absolute;
-    width: 50%;
+input {
+  border: 1px solid #ccc;
+  font-size: 12px;
+  height: 30px;
+  padding: 4px 8px;
+  position: absolute;
+  width: 50%;
 }
 
 button.btn-search,
