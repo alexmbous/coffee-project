@@ -129,6 +129,13 @@ select#roastSelection {
   left: 3em;
 }
 
+button.btn>img {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  padding: 4px;
+}
+
 .add-coffee {
   display: grid;
   grid-template-columns: 5% 90% 5%;
