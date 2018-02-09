@@ -33,14 +33,16 @@
         </div>
         <div class="searchBar">
           <input type="text" id="coffeeSearch" oninput='updateCoffees()' name="search">
-          <!--<input type="button" id="submit" name="submit">
-          <input class="search" type="text" name="search" placeholder="Search Type...">
-              <button type="submit" class="btn btn-search">
-                  <img src="img/coffee.png" height="30px" width="30px" alt="Coffee Icon">
-								</button>-->
         </div>
-      </div>
-      <div class="add-coffee">
+				<div class="add-coffee">
+					<input type="text" id="addBean">
+					<select name="roastChooser" id="roastStrength">
+						<option value="light" class="roastType">light</option>
+						<option value="medium" class="roastType">medium</option>
+						<option value="dark" class="roastType">dark</option>
+					</select>
+					<button type="submit" id="addNewBean">Submit</button>
+	      </div>
       </div>
     </div>
   </div>
