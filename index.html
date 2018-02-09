@@ -24,7 +24,7 @@
       <div class="coffee-search">
         <div id="roast">
           <select id="roastSelection" onchange="updateCoffees(this.options[this.selectedIndex].value)">
-            <option value="" selected disabled>Choose here</option>
+            <option selected disabled>Choose here</option>
             <option class='selection' value="light">Light</option>
             <option class='selection' value="medium">Medium</option>
             <option class='selection' value="dark">Dark</option>
@@ -34,9 +34,9 @@
         <div class="searchBar">
           <input type="text" id="coffeeSearch" oninput='updateCoffees()' name="search" placeholder="Search Type...">
         </div>
-      </div>
       <div class="add-coffee">
-          <input type="text" id="addCoffee" oninput='newCoffee()' name="addNewCoffee" placeholder="Add Coffee...">
+          <input type="text" id="addCoffee" oninput='newCoffee()' name="addNewCoffee" placeholder="Add Coffee (Name & Roast)">
+      </div>
       </div>
     </div>
   </div>
