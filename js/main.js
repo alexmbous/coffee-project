@@ -54,7 +54,7 @@
         } else if (name.indexOf(input) === '' && coffee.roast === selectedRoast) {
           filteredCoffees.push(coffee);
         } else {
-          console.log('error');
+          console.log('filtered');
         }
       }
       divCoffee.innerHTML = renderCoffees(filteredCoffees);
@@ -69,25 +69,30 @@ function addBean () {
   addNewBean.name = newBeanName;
   addNewBean.roast = newBeanStrength;
   coffees.push(addNewBean);
-  coffees.sort(compareRoast, compareName);
+  coffees.sort(compareRoast);
   return coffees;
 }
 
+// Compare for name of bean
 function compareName (a, b) {
-  if (a.name < b.name) {
-    return -1;
-  }
-  if (a.name > b.name) {
-    return 1;
+  if (a.roast === b.roast) {
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
   }
   return 0;
 }
 
+// Compare for name of roast
 function compareRoast (a, b) {
-  if (a.roast < b.roast) {
+  if (a.roast > b.roast) {
     return -1;
   }
-  if (a.roast > b.roast) {
+  if (a.roast < b.roast) {
     return 1;
   }
   return 0;
