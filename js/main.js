@@ -38,6 +38,7 @@
 
   // Function that controls dynamic population of renderCoffee functions
   function updateCoffees (e) {
+    coffees.sort(compareName);
     var input = document.getElementById('coffeeSearch').value.toLowerCase();
     var selectedRoast = document.getElementById('roastSelection').value;
     var filteredCoffees = [];
@@ -69,33 +70,15 @@ function addBean () {
   addNewBean.name = newBeanName;
   addNewBean.roast = newBeanStrength;
   coffees.push(addNewBean);
-  coffees.sort(compareRoast);
-  return coffees;
-}
-
-// Compare for name of bean
-function compareName (a, b) {
-  if (a.roast === b.roast) {
-    if (a.name < b.name) {
-      return -1;
-    }
-    if (a.name > b.name) {
-      return 1;
-    }
-    return 0;
-  }
-  return 0;
+  return updateCoffees(coffees);
 }
 
 // Compare for name of roast
-function compareRoast (a, b) {
-  if (a.roast > b.roast) {
-    return -1;
+function compareName (a, b) {
+  if (a.roast !== b.roast) {
+    return (a.roast > b.roast) ? 1
+    : (a.roast < b.roast) ? -1 : 0;
+  } else {
+    return (a.name.toLowerCase() < b.name.toLowerCase()) ? -1 : (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : 0;
   }
-  if (a.roast < b.roast) {
-    return 1;
-  }
-  return 0;
 }
-
-console.log(coffees.sort(compareRoast).sort(compareName));
