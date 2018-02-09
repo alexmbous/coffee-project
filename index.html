@@ -22,6 +22,9 @@
         </div>
       </div>
       <div class="coffee-search">
+				<div class="searchBar">
+          <input type="text" id="coffeeSearch" oninput="updateCoffees()" name="search">
+        </div>
         <div id="roast">
           <select id="roastSelection" onchange="updateCoffees(this.options[this.selectedIndex].value)">
             <option value="" selected disabled>Choose here</option>
@@ -31,17 +34,15 @@
             <option class='selection' value="all">All Roasts</option>
           </select>
         </div>
-        <div class="searchBar">
-          <input type="text" id="coffeeSearch" oninput='updateCoffees()' name="search">
-        </div>
 				<div class="add-coffee">
 					<input type="text" id="addBean">
 					<select name="roastChooser" id="roastStrength">
+						<option value="" selected disabled>Choose Strength</option>
 						<option value="light" class="roastType">light</option>
 						<option value="medium" class="roastType">medium</option>
 						<option value="dark" class="roastType">dark</option>
 					</select>
-					<button type="submit" id="addNewBean">Submit</button>
+					<button type="submit" id="addNewBean" onclick="console.log(addBean())">Add New Bean</button>
 	      </div>
       </div>
     </div>

@@ -101,14 +101,6 @@ p.tagline {
   grid-row: auto;
 }
 
-.roastLevel {
-  font-size: 2vh;
-  font-style: italic;
-  justify-self: center;
-  grid-column: auto;
-  grid-row: auto;
-}
-
 .coffee-search {
   display: grid;
   grid-template-columns: 5% 90% 5%;
@@ -117,23 +109,10 @@ p.tagline {
   grid-row: 2/5;
 }
 
-#roast {
-  width: 100%;
-  grid-column: 2/3;
-  grid-row: 2/3;
-}
-
-select#roastSelection {
-  grid-column: 2/3;
-  margin-top: 5vh;
-  top: 8vh;
-  left: 2vh;
-}
-
 .searchBar {
   margin-top: .5em;
 	grid-column: 2/3;
-	grid-row: 3/4;
+	grid-row: 2/3;
   display: block;
   text-align: right;
 }
@@ -141,6 +120,29 @@ select#roastSelection {
 input#coffeeSearch {
   width: 25vw;
   margin-top: 5vh;
+}
+
+#roast {
+  width: 100%;
+  grid-column: 2/3;
+  grid-row: 3/4;
+  text-align: right;
+}
+
+.roastLevel {
+  font-size: 2vh;
+  font-style: italic;
+  justify-self: center;
+  grid-column: auto;
+  grid-row: auto;
+}
+
+select#roastSelection {
+  width: 25vw;
+  grid-column: 2/3;
+  margin-top: 5vh;
+  top: 8vh;
+  left: 2vh;
 }
 
 .add-coffee {

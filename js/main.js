@@ -1,6 +1,25 @@
-(function () {
-  'use strict';
+'use strict';
 
+  // Current inventory
+  var coffees = [
+      {id: 1, name: 'Light City', roast: 'light'},
+      {id: 2, name: 'Half City', roast: 'light'},
+      {id: 3, name: 'Cinnamon', roast: 'light'},
+      {id: 4, name: 'City', roast: 'medium'},
+      {id: 5, name: 'American', roast: 'medium'},
+      {id: 6, name: 'Breakfast', roast: 'medium'},
+      {id: 7, name: 'High', roast: 'dark'},
+      {id: 8, name: 'Continental', roast: 'dark'},
+      {id: 9, name: 'New Orleans', roast: 'dark'},
+      {id: 10, name: 'European', roast: 'dark'},
+      {id: 11, name: 'Espresso', roast: 'dark'},
+      {id: 12, name: 'Viennese', roast: 'dark'},
+      {id: 13, name: 'Italian', roast: 'dark'},
+      {id: 14, name: 'French', roast: 'dark'}
+  ];
+
+  // Targets the ID of coffees to reference when rendering
+  var divCoffee = document.querySelector('#coffees');
   // Function used to create each seperate div for individual coffee names
   function renderCoffee (coffee) {
     var div = '';
@@ -42,23 +61,36 @@
     });
   }
 
-  // Current inventory
-  var coffees = [
-      {id: 1, name: 'Light City', roast: 'light'},
-      {id: 2, name: 'Half City', roast: 'light'},
-      {id: 3, name: 'Cinnamon', roast: 'light'},
-      {id: 4, name: 'City', roast: 'medium'},
-      {id: 5, name: 'American', roast: 'medium'},
-      {id: 6, name: 'Breakfast', roast: 'medium'},
-      {id: 7, name: 'High', roast: 'dark'},
-      {id: 8, name: 'Continental', roast: 'dark'},
-      {id: 9, name: 'New Orleans', roast: 'dark'},
-      {id: 10, name: 'European', roast: 'dark'},
-      {id: 11, name: 'Espresso', roast: 'dark'},
-      {id: 12, name: 'Viennese', roast: 'dark'},
-      {id: 13, name: 'Italian', roast: 'dark'},
-      {id: 14, name: 'French', roast: 'dark'}
-  ];
-  // Targets the ID of coffees to reference when rendering
-  var divCoffee = document.querySelector('#coffees');
-})();
+function addBean () {
+  var newBeanStrength = document.getElementById('roastStrength').value;
+  var newBeanName = document.getElementById('addBean').value;
+  var addNewBean = {};
+  addNewBean.id = coffees.length + 1;
+  addNewBean.name = newBeanName;
+  addNewBean.roast = newBeanStrength;
+  coffees.push(addNewBean);
+  coffees.sort(compareRoast, compareName);
+  return coffees;
+}
+
+function compareName (a, b) {
+  if (a.name < b.name) {
+    return -1;
+  }
+  if (a.name > b.name) {
+    return 1;
+  }
+  return 0;
+}
+
+function compareRoast (a, b) {
+  if (a.roast < b.roast) {
+    return -1;
+  }
+  if (a.roast > b.roast) {
+    return 1;
+  }
+  return 0;
+}
+
+console.log(coffees.sort(compareRoast).sort(compareName));
