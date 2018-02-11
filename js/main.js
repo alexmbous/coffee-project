@@ -20,11 +20,11 @@ var coffees = [
 
   // Targets the ID of coffees to reference when rendering
 var divCoffee = document.querySelector('#coffees');
-var idx = coffees.indexOf(coffees.id);
+
   // Function used to create each seperate div for individual coffee names
 function renderCoffee (coffee) {
   var div = '';
-  div += `<div class="coffeeName">${coffee.name} <p   class="roastLevel">${coffee.roast}</p> <button id="${coffees.id}">x</button>  </div>`;
+  div += `<div class="card-container"><header class="container dark"><h3 class="coffeeName">${coffee.name}</h3></header><div class="container"><p class="roastLevel">${coffee.roast}</p><hr><p>Coffee Description</p><br></div><button class="card-button dark" id=${coffee.id} onclick="return btnClick(this.id)">Add to cart</button><button class="card-button dark" id=${coffee.id} onclick="return btnClick(this.id)">Remove</button></div>`;
   return div;
 }
 
@@ -83,8 +83,9 @@ function compareName (a, b) {
     return (a.name.toLowerCase() < b.name.toLowerCase()) ? -1 : (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : 0;
   }
 }
-
-function removeBean (idx) {
-  coffees.splice(idx);
-  return updateCoffees();
+var idx = '';
+function btnClick (clicked) {
+  idx = clicked;
+  coffees.splice(coffees.indexOf(idx), 1);
+  updateCoffees();
 }
