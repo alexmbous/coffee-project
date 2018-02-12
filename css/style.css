@@ -5,6 +5,9 @@ html, body, p {
 }
 
 html {
+  height: 100%;
+  color: #d2cbc2;
+  font-family: "Quattrocento, sans-serif";
   font-size: 16px;
   line-height: 1.6;
 }
@@ -20,23 +23,26 @@ html {
   .wrapper {
     display: grid;
     grid-template-columns: 5vw 90vw 5vw;
-    grid-template-rows: 5vh 20vh 70vh 5vh;
+    grid-template-rows: 5vh 15vh 75vh 5vh;
+    background: url('../img/grinder.jpg') center;
   }
 
   /* header elements */
   .header {
     align-self: center;
     text-align: center;
-    grid-row: 2;
-    grid-column: 2/3;
+    grid-row: 1;
+    grid-column: 1/4;
   }
 
   p.brand {
     font-size: 2rem;
+    background-color: #352300e0;
   }
 
   p.tagline {
     font-size: 1rem;
+    background-color: #352300e0;
   }
 
   /* main body wrapper */
@@ -49,6 +55,14 @@ html {
 
   .search-results {
     grid-row: 2;
+  }
+
+  #welcome-text {
+    background-color: #352300e0;
+    text-align: left;
+    margin: auto;
+    padding: 1rem;
+    margin-top: 5rem;
   }
 
   #coffees {
@@ -66,6 +80,31 @@ html {
 
   div.container {
     padding: 2rem;
+  }
+
+  div.coffee-search {
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  div.searchBar {
+    display: inline-block;
+  }
+
+  .coffee-search select {
+    width: 30vw;
+  }
+
+
+  #roast  {
+    display: inline-block;
+  }
+
+  footer {
+    grid-column: 2/3;
+    grid-row: 4;
+    text-align: center;
   }
 }
 
